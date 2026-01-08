@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
@@ -20,15 +21,30 @@ const Contact = () => {
     <div className="pt-20">
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
               Contact Us
             </h1>
-            <div className="w-20 h-1 bg-primary mx-auto" />
-          </div>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-20 h-1 bg-primary mx-auto"
+            />
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-2xl font-bold text-foreground mb-6">
                 Get In Touch
               </h2>
@@ -96,9 +112,15 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
-            </div>
+            </motion.div>
 
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-6">
                   Contact Information
@@ -108,7 +130,11 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <div className="font-medium text-foreground">Phone</div>
-                      <div className="text-muted-foreground">+91 123 456 7890</div>
+                      <div className="text-muted-foreground space-y-1">
+                        <div>8977009403</div>
+                        <div>8977009402</div>
+                        <div>8977009404</div>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -125,7 +151,7 @@ const Contact = () => {
                     <div>
                       <div className="font-medium text-foreground">Address</div>
                       <div className="text-muted-foreground">
-                        Mumbai, Maharashtra, India
+                        Old Bowenpally, Chinna thokata, Opp Ganshyam super market, Old Bowenpally, Secunderabad
                       </div>
                     </div>
                   </div>
@@ -141,14 +167,20 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-muted p-6 rounded-lg">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-muted p-6 rounded-lg"
+              >
                 <h3 className="font-bold text-foreground mb-2">Quick Response</h3>
                 <p className="text-muted-foreground text-sm">
                   We typically respond to all inquiries within 24 hours. For
                   urgent matters, please call us directly.
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Shield, Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavLink {
@@ -18,12 +18,18 @@ const navLinks: NavLink[] = [
     children: [
       { label: "Industrial Security", path: "/services/industrial" },
       { label: "Corporate Security", path: "/services/corporate" },
+      { label: "IT / ITES Security", path: "/services/ites" },
+      { label: "Banking/Financial Institution Security", path: "/services/banking" },
       { label: "Hospital Security", path: "/services/hospital" },
-      { label: "Retail Security", path: "/services/retail" },
-      { label: "Event Security", path: "/services/event" },
+      { label: "Malls & Retail Security", path: "/services/retail" },
+      { label: "Infrastructure / Construction Security", path: "/services/construction" },
+      { label: "Residential/Gated Community Security", path: "/services/residential" },
+      { label: "Escort Security", path: "/services/escort" },
+      { label: "Event Management", path: "/services/event" },
+      { label: "Housekeeping Services", path: "/services/housekeeping" },
+      { label: "Helper/Support Staff", path: "/services/support-staff" },
     ],
   },
-  { label: "Training Institute", path: "/training" },
   { label: "Gallery", path: "/gallery" },
   { label: "Contact Us", path: "/contact" },
 ];
@@ -38,14 +44,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <Shield className="w-7 h-7 text-primary-foreground" />
-            </div>
+          <Link to="/" className="flex items-center group">
             <div className="hidden sm:block">
               <div className="text-xl font-bold text-foreground">Red Tigers</div>
               <div className="text-xs text-muted-foreground">Security Services</div>
             </div>
+            <div className="sm:hidden text-xl font-bold text-foreground">Red Tigers</div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -99,7 +103,7 @@ const Navigation = () => {
             to="/contact"
             className="hidden lg:flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
           >
-            <span>Get A Quote</span>
+            <span>Contact Us</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -151,7 +155,7 @@ const Navigation = () => {
               onClick={() => setMobileOpen(false)}
               className="block w-full mt-4 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors text-center"
             >
-              Get A Quote
+              Contact Us
             </Link>
           </div>
         )}

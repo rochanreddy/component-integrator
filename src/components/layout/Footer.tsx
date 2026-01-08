@@ -18,7 +18,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm opacity-60">
-              Professional security services and certified training for all industries.
+              Professional security services for all industries.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
                 { label: "Home", path: "/" },
                 { label: "About Us", path: "/about" },
                 { label: "Services", path: "/services" },
-                { label: "Training", path: "/training" },
+                { label: "Gallery", path: "/gallery" },
                 { label: "Contact", path: "/contact" },
               ].map((link) => (
                 <Link
@@ -72,7 +72,11 @@ const Footer = () => {
             <div className="space-y-3 text-sm opacity-60">
               <div className="flex items-start space-x-2">
                 <Phone className="w-4 h-4 mt-0.5 text-primary" />
-                <span>+91 123 456 7890</span>
+                <div className="space-y-1">
+                  <div>8977009403</div>
+                  <div>8977009402</div>
+                  <div>8977009404</div>
+                </div>
               </div>
               <div className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-0.5 text-primary" />
@@ -80,7 +84,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Old Bowenpally, Chinna thokata, Opp Ganshyam super market, Old Bowenpally, Secunderabad</span>
               </div>
             </div>
           </div>

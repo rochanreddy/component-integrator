@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Building2, Hospital, ShoppingBag, Calendar, Shield, ArrowRight } from "lucide-react";
+import {
+  Factory,
+  Building2,
+  Shield,
+  Landmark,
+  Hospital,
+  ShoppingBag,
+  HardHat,
+  Home as HomeIcon,
+  UserCheck,
+  Calendar,
+  Sparkles,
+  Users2,
+  ArrowRight,
+} from "lucide-react";
 
 const services = [
   {
-    icon: Building2,
+    icon: Factory,
     title: "Industrial Security",
     description: "Comprehensive security for manufacturing and industrial facilities",
     path: "/services/industrial",
@@ -16,6 +30,18 @@ const services = [
     path: "/services/corporate",
   },
   {
+    icon: Shield,
+    title: "IT / ITES Security",
+    description: "Advanced security for technology companies",
+    path: "/services/ites",
+  },
+  {
+    icon: Landmark,
+    title: "Banking/Financial Institution Security",
+    description: "Specialized security for banks and financial institutions",
+    path: "/services/banking",
+  },
+  {
     icon: Hospital,
     title: "Hospital Security",
     description: "Specialized security for healthcare environments",
@@ -23,21 +49,45 @@ const services = [
   },
   {
     icon: ShoppingBag,
-    title: "Retail Security",
+    title: "Malls & Retail Security",
     description: "Loss prevention and customer safety for retail spaces",
     path: "/services/retail",
   },
   {
+    icon: HardHat,
+    title: "Infrastructure / Construction Security",
+    description: "Security solutions for construction sites and infrastructure projects",
+    path: "/services/construction",
+  },
+  {
+    icon: HomeIcon,
+    title: "Residential/Gated Community Security",
+    description: "Professional security for residential complexes and gated communities",
+    path: "/services/residential",
+  },
+  {
+    icon: UserCheck,
+    title: "Escort Security",
+    description: "Personal protection and escort services for VIPs and executives",
+    path: "/services/escort",
+  },
+  {
     icon: Calendar,
-    title: "Event Security",
-    description: "Professional crowd management and event security",
+    title: "Event Management (Bouncers & Personal Security Officers)",
+    description: "Professional event security with bouncers and personal security officers",
     path: "/services/event",
   },
   {
-    icon: Shield,
-    title: "IT / ITES Security",
-    description: "Advanced security for technology companies",
-    path: "/services/corporate",
+    icon: Sparkles,
+    title: "Housekeeping Services",
+    description: "Professional housekeeping and maintenance services",
+    path: "/services/housekeeping",
+  },
+  {
+    icon: Users2,
+    title: "Helper/Support Staff",
+    description: "Reliable support staff and helper services for various needs",
+    path: "/services/support-staff",
   },
 ];
 
@@ -46,12 +96,22 @@ const Services = () => {
     <div className="pt-20">
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
               Our Services
             </h1>
-            <div className="w-20 h-1 bg-primary mx-auto" />
-          </div>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-20 h-1 bg-primary mx-auto"
+            />
+          </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
