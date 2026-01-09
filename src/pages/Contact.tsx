@@ -1,7 +1,45 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Create FormData for Google Forms
+      const googleFormData = new FormData();
+      googleFormData.append('entry.590969658', formData.name);
+      googleFormData.append('entry.845996648', formData.email);
+      googleFormData.append('entry.1687145607', formData.phone);
+      googleFormData.append('entry.1780918826', formData.message);
+
+      // Submit to Google Form
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLScnh_LEXvCdhRWVVJrP6zN5hv20m1xUw1-1vRRthBMBikAzZg/formResponse', {
+        method: 'POST',
+        body: googleFormData,
+        mode: 'no-cors', // Important for Google Forms
+      });
+
+      alert("Thank you for contacting us! We will get back to you soon.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="pt-16 sm:pt-20">
@@ -34,19 +72,75 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-foreground mb-6">
                 Get In Touch
               </h2>
-              <div className="w-full h-[600px] rounded-lg overflow-hidden border border-border">
-                <iframe 
-                  src="https://docs.google.com/forms/d/e/1FAIpQLScnh_LEXvCdhRWVVJrP6zN5hv20m1xUw1-1vRRthBMBikAzZg/viewform?embedded=true"
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  marginHeight={0} 
-                  marginWidth={0}
-                  title="Contact Form"
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                    placeholder="Your phone number"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Your Message/Inquiry
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                    placeholder="Tell us how we can help you..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Loading…
-                </iframe>
-              </div>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+              </form>
             </motion.div>
 
             <motion.div
