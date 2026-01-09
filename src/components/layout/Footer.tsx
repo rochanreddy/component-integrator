@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/white.png" 
+                src="/white1.png" 
                 alt="Red Tigers Security Services Logo" 
                 className="h-32 sm:h-40 w-auto object-contain"
               />

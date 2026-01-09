@@ -1,21 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for contacting us! We will get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
 
   return (
     <div className="pt-16 sm:pt-20">
@@ -48,70 +34,19 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-foreground mb-6">
                 Get In Touch
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors"
+              <div className="w-full h-[600px] rounded-lg overflow-hidden border border-border">
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLScnh_LEXvCdhRWVVJrP6zN5hv20m1xUw1-1vRRthBMBikAzZg/viewform?embedded=true"
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0" 
+                  marginHeight={0} 
+                  marginWidth={0}
+                  title="Contact Form"
                 >
-                  Send Message
-                </button>
-              </form>
+                  Loading…
+                </iframe>
+              </div>
             </motion.div>
 
             <motion.div
@@ -193,7 +128,7 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-foreground mb-4">Find Us</h3>
                 <div className="w-full h-80 rounded-lg overflow-hidden border border-border">
                   <iframe
-                    src="https://www.google.com/maps?q=Old+Bowenpally,+Chinna+thokata,+Opp+Ganshyam+super+market,+Old+Bowenpally,+Secunderabad&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3805.909670864677!2d78.47859607516669!3d17.464036983436316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDI3JzUwLjUiTiA3OMKwMjgnNTIuMiJF!5e0!3m2!1sen!2sin!4v1767961238968!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

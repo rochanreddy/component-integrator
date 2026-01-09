@@ -415,7 +415,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight tracking-wide"
             >
               Red Tigers Security Guarding Services
             </motion.h1>
