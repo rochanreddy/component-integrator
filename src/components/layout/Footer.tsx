@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/rtsgs.png" 
+                src="/white.png" 
                 alt="Red Tigers Security Services Logo" 
                 className="h-32 sm:h-40 w-auto object-contain"
               />
@@ -78,7 +78,11 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                <span className="break-all sm:break-normal">info@rtsgs.com</span>
+                <div className="space-y-1">
+                  <div className="break-all sm:break-normal">info@rtsgs.com</div>
+                  <div className="break-all sm:break-normal">opt@rtsgs.com</div>
+                  <div className="break-all sm:break-normal">admin@rtsgs.com</div>
+                </div>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary" />

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 const images = [
-  "/gallary/018ce811-05fc-47d1-bdd9-b12d6b2a60e6.jpg",
   "/gallary/145b7648-bf5c-4b2d-89f3-52460f572bd8.jpg",
   "/gallary/5a58b6e0-c175-49c8-aff2-c7f28e54cd8f.jpg",
   "/gallary/60c4efa9-5f26-4f3b-aee8-defc81442f68.jpg",

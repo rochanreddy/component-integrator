@@ -417,7 +417,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight"
             >
-              Professional Security Services
+              Red Tigers Security Guarding Services
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -500,7 +500,7 @@ const Home = () => {
               technology to deliver comprehensive security solutions.
             </motion.p>
             <div className="grid sm:grid-cols-3 gap-6 mb-8">
-              <StatCard value={15} suffix="+" label="Years of Experience" delay={0.4} />
+              <StatCard value={30} suffix="+" label="Years of Experience" delay={0.4} />
               <StatCard value={500} suffix="+" label="Successful Projects" delay={0.5} />
               <StatCard value={150} suffix="+" label="Happy Clients" delay={0.6} />
             </div>
@@ -782,7 +782,7 @@ const Home = () => {
                       <img
                         src={client.logo}
                         alt={client.name}
-                        className="h-full w-auto max-w-[140px] md:max-w-[160px] object-contain opacity-50 hover:opacity-100 transition-opacity duration-300"
+                        className="h-full w-auto max-w-[140px] md:max-w-[160px] object-contain opacity-100"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = "/placeholder.svg";

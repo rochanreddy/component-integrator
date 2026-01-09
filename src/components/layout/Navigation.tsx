@@ -48,7 +48,7 @@ const Navigation = () => {
             <img 
               src="/rtsgs.png" 
               alt="Red Tigers Security Services Logo" 
-              className="h-12 sm:h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-48 md:h-64 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 

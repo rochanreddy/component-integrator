@@ -141,8 +141,10 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <div className="font-medium text-foreground">Email</div>
-                      <div className="text-muted-foreground">
-                        info@rtsgs.com
+                      <div className="text-muted-foreground space-y-1">
+                        <div>info@rtsgs.com</div>
+                        <div>opt@rtsgs.com</div>
+                        <div>admin@rtsgs.com</div>
                       </div>
                     </div>
                   </div>
