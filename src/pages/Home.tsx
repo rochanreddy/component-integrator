@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { useCountUp } from "@/hooks/useCountUp";
 import {
   Building2,
   Hospital,
@@ -301,6 +302,44 @@ const TestimonialsCarousel = () => {
   );
 };
 
+// Stat Card Component with animation
+const StatCard = ({ value, suffix, label, delay }: { value: number; suffix: string; label: string; delay: number }) => {
+  const { ref, count } = useCountUp({ end: value, suffix, duration: 2.5 });
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay }}
+      viewport={{ once: true }}
+      className="bg-muted p-6 rounded-lg hover:shadow-lg transition-shadow"
+    >
+      <div className="text-3xl font-bold text-primary mb-2">{count}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </motion.div>
+  );
+};
+
+// Large Stat Card Component with animation
+const LargeStatCard = ({ value, suffix, label, delay }: { value: number; suffix: string; label: string; delay: number }) => {
+  const { ref, count } = useCountUp({ end: value, suffix, duration: 2.5 });
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay }}
+      viewport={{ once: true }}
+    >
+      <div className="text-5xl font-bold text-foreground mb-2">{count}</div>
+      <div className="w-16 h-1 bg-primary mx-auto mb-2" />
+      <div className="text-muted-foreground">{label}</div>
+    </motion.div>
+  );
+};
+
 const Home = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -331,11 +370,11 @@ const Home = () => {
   }, [api]);
 
   return (
-    <div className="pt-16 w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full h-[calc(100vh-4rem)] min-h-[500px] max-h-screen overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden">
         {/* Carousel Background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" style={{ height: '100vh', width: '100vw' }}>
           <Carousel 
             setApi={setApi} 
             className="w-full h-full"
@@ -345,14 +384,15 @@ const Home = () => {
               duration: 30,
             }}
           >
-            <CarouselContent className="h-full -ml-0">
+            <CarouselContent className="-ml-0" style={{ height: '100vh' }}>
               {heroImages.map((image, index) => (
-                <CarouselItem key={index} className="pl-0 basis-full h-full">
-                  <div className="relative w-full h-full">
+                <CarouselItem key={index} className="pl-0 basis-full" style={{ height: '100vh' }}>
+                  <div className="relative w-full h-full" style={{ height: '100vh', width: '100vw' }}>
                     <img
                       src={image}
                       alt={`Security service ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ height: '100vh', width: '100vw', objectFit: 'cover' }}
                       loading={index === 0 ? "eager" : "lazy"}
                       onError={(e) => {
                         console.error("Image failed to load:", image);
@@ -360,7 +400,7 @@ const Home = () => {
                         target.style.display = "none";
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-foreground/90 via-foreground/80 to-foreground/90 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-foreground/90 via-foreground/80 to-foreground/90 pointer-events-none" style={{ height: '100vh', width: '100vw' }} />
                   </div>
                 </CarouselItem>
               ))}
@@ -369,13 +409,13 @@ const Home = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute inset-0 z-10 flex items-center justify-center pt-16">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-12 text-center max-w-4xl">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-background mb-4 sm:mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight"
             >
               Professional Security Services
             </motion.h1>
@@ -383,7 +423,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-background/90 mb-6 sm:mb-8 max-w-3xl mx-auto"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-background/90 mb-4 sm:mb-6"
             >
               Providing expert security solutions for all industries
             </motion.p>
@@ -391,18 +431,18 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4"
             >
               <Link
                 to="/contact"
-                className="w-full sm:w-auto bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 text-sm sm:text-base"
+                className="w-full sm:w-auto bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 text-sm font-medium"
               >
                 <span>Get A Quote</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/services"
-                className="w-full sm:w-auto border-2 border-background text-background px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-background hover:text-foreground transition-colors text-sm sm:text-base"
+                className="w-full sm:w-auto border-2 border-background text-background px-6 py-3 rounded-lg hover:bg-background hover:text-foreground transition-colors text-sm font-medium"
               >
                 Our Services
               </Link>
@@ -460,23 +500,9 @@ const Home = () => {
               technology to deliver comprehensive security solutions.
             </motion.p>
             <div className="grid sm:grid-cols-3 gap-6 mb-8">
-              {[
-                { value: "15+", label: "Years of Experience" },
-                { value: "500+", label: "Successful Projects" },
-                { value: "150+", label: "Happy Clients" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-muted p-6 rounded-lg hover:shadow-lg transition-shadow"
-                >
-                  <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
-              ))}
+              <StatCard value={15} suffix="+" label="Years of Experience" delay={0.4} />
+              <StatCard value={500} suffix="+" label="Successful Projects" delay={0.5} />
+              <StatCard value={150} suffix="+" label="Happy Clients" delay={0.6} />
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -786,25 +812,9 @@ const Home = () => {
             <div className="w-20 h-1 bg-primary mx-auto mb-4" />
           </motion.div>
           <div className="grid sm:grid-cols-3 gap-8 text-center">
-            {[
-              { value: "1000+", label: "Trained Professionals" },
-              { value: "500+", label: "Successful Deployments" },
-              { value: "150+", label: "Client Organizations" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-5xl font-bold text-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="w-16 h-1 bg-primary mx-auto mb-2" />
-                <div className="text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
+            <LargeStatCard value={1000} suffix="+" label="Trained Professionals" delay={0} />
+            <LargeStatCard value={500} suffix="+" label="Successful Deployments" delay={0.1} />
+            <LargeStatCard value={150} suffix="+" label="Client Organizations" delay={0.2} />
           </div>
         </div>
       </section>
