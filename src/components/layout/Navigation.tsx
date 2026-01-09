@@ -42,13 +42,13 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img 
               src="/rtsgs.png" 
               alt="Red Tigers Security Services Logo" 
-              className="h-36 sm:h-40 md:h-48 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-12 sm:h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 

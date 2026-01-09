@@ -331,10 +331,11 @@ const Home = () => {
   }, [api]);
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 w-full overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-5rem)] min-h-[600px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 w-full h-full">
+      <section className="relative w-full h-[calc(100vh-4rem)] min-h-[500px] max-h-screen overflow-hidden">
+        {/* Carousel Background */}
+        <div className="absolute inset-0 z-0">
           <Carousel 
             setApi={setApi} 
             className="w-full h-full"
@@ -346,12 +347,12 @@ const Home = () => {
           >
             <CarouselContent className="h-full -ml-0">
               {heroImages.map((image, index) => (
-                <CarouselItem key={index} className="h-full pl-0 basis-full min-w-0 shrink-0 grow-0">
-                  <div className="relative w-full h-full min-h-full">
+                <CarouselItem key={index} className="pl-0 basis-full h-full">
+                  <div className="relative w-full h-full">
                     <img
                       src={image}
                       alt={`Security service ${index + 1}`}
-                      className="w-full h-full min-h-full object-cover"
+                      className="w-full h-full object-cover"
                       loading={index === 0 ? "eager" : "lazy"}
                       onError={(e) => {
                         console.error("Image failed to load:", image);
@@ -367,8 +368,50 @@ const Home = () => {
           </Carousel>
         </div>
 
+        {/* Content Overlay */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-background mb-4 sm:mb-6"
+            >
+              Professional Security Services
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-background/90 mb-6 sm:mb-8 max-w-3xl mx-auto"
+            >
+              Providing expert security solutions for all industries
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2 text-sm sm:text-base"
+              >
+                <span>Get A Quote</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
+              <Link
+                to="/services"
+                className="w-full sm:w-auto border-2 border-background text-background px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-background hover:text-foreground transition-colors text-sm sm:text-base"
+              >
+                Our Services
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
         {/* Carousel Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
@@ -381,45 +424,6 @@ const Home = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
-
-        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-background mb-6"
-          >
-            Professional Security Services
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl text-background/90 mb-8 max-w-3xl mx-auto"
-          >
-            Providing expert security solutions for all industries
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-          >
-            <Link
-              to="/contact"
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center space-x-2"
-            >
-              <span>Get A Quote</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/services"
-              className="border-2 border-background text-background px-8 py-4 rounded-lg hover:bg-background hover:text-foreground transition-colors"
-            >
-              Our Services
-            </Link>
-          </motion.div>
         </div>
       </section>
 

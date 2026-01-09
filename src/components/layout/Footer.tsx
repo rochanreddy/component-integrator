@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src="/rtsgs.png" 
                 alt="Red Tigers Security Services Logo" 
-                className="h-48 sm:h-60 w-auto object-contain"
+                className="h-32 sm:h-40 w-auto object-contain"
               />
             </div>
             <p className="text-sm opacity-60">
