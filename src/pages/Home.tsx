@@ -415,9 +415,10 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight tracking-wide"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight"
+              style={{ letterSpacing: '0.05em' }}
             >
-              Red Tigers Security Guarding Services
+              Red Tiger Security Guarding Services
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -494,7 +495,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto"
             >
-              Red Tigers Security Services is a trusted security provider with
+              Red Tiger Security Guarding Services is a trusted security provider with
               years of professional service in industrial, corporate and
               institutional safety. We combine experienced personnel with modern
               technology to deliver comprehensive security solutions.
