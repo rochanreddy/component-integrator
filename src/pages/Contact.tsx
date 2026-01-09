@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 sm:pt-20">
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -142,7 +142,7 @@ const Contact = () => {
                     <div>
                       <div className="font-medium text-foreground">Email</div>
                       <div className="text-muted-foreground">
-                        info@redtigerssecurity.com
+                        info@rtsgs.com
                       </div>
                     </div>
                   </div>
@@ -179,6 +179,29 @@ const Contact = () => {
                   We typically respond to all inquiries within 24 hours. For
                   urgent matters, please call us directly.
                 </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="mt-8"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-4">Find Us</h3>
+                <div className="w-full h-80 rounded-lg overflow-hidden border border-border">
+                  <iframe
+                    src="https://www.google.com/maps?q=Old+Bowenpally,+Chinna+thokata,+Opp+Ganshyam+super+market,+Old+Bowenpally,+Secunderabad&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Red Tigers Security Services Location"
+                    className="w-full h-full"
+                  />
+                </div>
               </motion.div>
             </motion.div>
           </div>

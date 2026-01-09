@@ -45,11 +45,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold text-foreground">Red Tigers</div>
-              <div className="text-xs text-muted-foreground">Security Services</div>
-            </div>
-            <div className="sm:hidden text-xl font-bold text-foreground">Red Tigers</div>
+            <img 
+              src="/rtsgs.png" 
+              alt="Red Tigers Security Services Logo" 
+              className="h-36 sm:h-40 md:h-48 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,14 +8,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <div className="font-bold">Red Tigers</div>
-                <div className="text-xs opacity-60">Security Services</div>
-              </div>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/rtsgs.png" 
+                alt="Red Tigers Security Services Logo" 
+                className="h-48 sm:h-60 w-auto object-contain"
+              />
             </div>
             <p className="text-sm opacity-60">
               Professional security services for all industries.
@@ -79,8 +77,8 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-2">
-                <Mail className="w-4 h-4 mt-0.5 text-primary" />
-                <span>info@redtigerssecurity.com</span>
+                <Mail className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
+                <span className="break-all sm:break-normal">info@rtsgs.com</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary" />
@@ -91,7 +89,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
-          <p>&copy; 2024 Red Tigers Security Services. All rights reserved.</p>
+          <p>&copy; 2026 Red Tigers Security Services. All rights reserved.</p>
         </div>
       </div>
     </footer>
