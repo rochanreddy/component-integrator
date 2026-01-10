@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -38,6 +38,27 @@ const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        servicesDropdownRef.current &&
+        !servicesDropdownRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+
+    if (servicesOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [servicesOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
@@ -59,15 +80,22 @@ const Navigation = () => {
                 <div
                   key={link.path}
                   className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
+                  ref={servicesDropdownRef}
                 >
-                  <button className="px-4 py-2 text-foreground hover:text-primary transition-colors flex items-center space-x-1">
+                  <button 
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className="px-4 py-2 text-foreground hover:text-primary transition-colors flex items-center space-x-1"
+                  >
                     <span>{link.label}</span>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown 
+                      className={cn(
+                        "w-4 h-4 transition-transform",
+                        servicesOpen && "rotate-180"
+                      )} 
+                    />
                   </button>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-lg shadow-lg py-2">
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
                       {link.children.map((child) => (
                         <Link
                           key={child.path}
