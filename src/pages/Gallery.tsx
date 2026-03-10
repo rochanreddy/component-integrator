@@ -10,6 +10,7 @@ const images = [
   "/gallary/bdd98e46-98e8-49b6-b017-77c83624e733.jpg",
   "/gallary/cf5ea07a-f97f-47e2-aa3f-9717827558c1.jpg",
   "/gallary/d58d9b9c-65b0-47ea-8624-c4c93fb96f37.png",
+  "/gallary/WhatsApp Image 2026-03-10 at 20.44.04.jpeg",
 ];
 
 const Gallery = () => {
