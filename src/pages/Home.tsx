@@ -426,7 +426,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-sm sm:text-base md:text-lg lg:text-xl text-background/90 mb-4 sm:mb-6"
             >
-              Providing expert security solutions for all industries
+              Top Security Agency & Guarding Services in Hyderabad
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
