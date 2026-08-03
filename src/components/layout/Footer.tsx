@@ -72,8 +72,8 @@ const Footer = () => {
                 <Phone className="w-4 h-4 mt-0.5 text-primary" />
                 <div className="space-y-1">
                   <div>8977009403</div>
-                  <div>8977009402</div>
                   <div>8977009404</div>
+                  <div>8977009405</div>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
@@ -86,7 +86,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-0.5 text-primary" />
-                <span>Old Bowenpally, Chinna thokata, Opp Ganshyam super market, Old Bowenpally, Secunderabad</span>
+                <span>PLOT NO21, BHAVAN COLONY OLD BOWENPALLY, Tirumalagiri HYDERABAD<br />TELANGANA - 500011</span>
               </div>
             </div>
           </div>

@@ -161,8 +161,8 @@ const Contact = () => {
                       <div className="font-medium text-foreground">Phone</div>
                       <div className="text-muted-foreground space-y-1">
                         <div>8977009403</div>
-                        <div>8977009402</div>
                         <div>8977009404</div>
+                        <div>8977009405</div>
                       </div>
                     </div>
                   </div>
@@ -182,7 +182,8 @@ const Contact = () => {
                     <div>
                       <div className="font-medium text-foreground">Address</div>
                       <div className="text-muted-foreground">
-                        Old Bowenpally, Chinna thokata, Opp Ganshyam super market, Old Bowenpally, Secunderabad
+                        PLOT NO21, BHAVAN COLONY OLD BOWENPALLY, Tirumalagiri HYDERABAD<br />
+                        TELANGANA - 500011
                       </div>
                     </div>
                   </div>

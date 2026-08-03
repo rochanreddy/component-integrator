@@ -418,7 +418,7 @@ const Home = () => {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-background mb-3 sm:mb-4 leading-tight"
               style={{ letterSpacing: '0.05em' }}
             >
-              Red Tiger Security Guarding Services
+              Red Tigers Security Guarding Services
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
